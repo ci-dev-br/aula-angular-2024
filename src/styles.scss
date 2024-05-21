@@ -6,5 +6,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: stretch;   
+    justify-content: stretch;
+
+
+    background: linear-gradient(170deg, #aaa 0%, #fff 100%);
+
+    padding: 25px;
 }

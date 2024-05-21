@@ -1,6 +1,14 @@
-:host{
-    display: contents;
+:host {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    background-color: #BB0000;
+
+    padding: 24px;
+    border: solid 2px #330000;
+    border-radius: 6px;
 }
+
 
 .ativo {
     background: blue;
