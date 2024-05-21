@@ -1,0 +1,11 @@
+.pokemons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+
+    .item {
+        background: linear-gradient(to top, red 0%, blue 100%);
+        color: white;
+    }
+}

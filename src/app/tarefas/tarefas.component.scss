@@ -1,0 +1,8 @@
+.lista {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+
+    nx-item-tarefa {}
+}

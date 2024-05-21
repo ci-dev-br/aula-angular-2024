@@ -1,0 +1,15 @@
+:host {
+    flex: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: stretch;
+    min-width: 300px;
+}

@@ -1,0 +1,7 @@
+<p>editar-tarefa works!</p>
+
+<ng-container *ngIf="tarefa">
+    <input (change)="tarefa.change.emit(tarefa)" type="text" placeholder="Descrição" [(ngModel)]="tarefa.descricao">
+</ng-container>
+
+{{ tarefa | json }}

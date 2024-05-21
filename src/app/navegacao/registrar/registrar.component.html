@@ -1,0 +1,8 @@
+<form>
+    <h1>Criar conta</h1>
+    <p>No banco mais TOP das galáxia</p>
+    <input #u type="text" placeholder="Username">
+    <input #p type="password" placeholder="Senha">
+    <button type="button" (click)="registrar(u.value, p.value)">Criar Conta</button>
+    <button type="button" routerLink="/login">Já possui conta</button>
+</form>

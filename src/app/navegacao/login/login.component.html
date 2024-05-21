@@ -1,0 +1,6 @@
+<form>
+    <input #u type="text" placeholder="Username">
+    <input #p type="password" placeholder="Senha">
+    <button type="button" (click)="login(u.value, p.value)">Acessar</button>
+    <button type="button" routerLink="/registrar">Registrar</button>
+</form>
