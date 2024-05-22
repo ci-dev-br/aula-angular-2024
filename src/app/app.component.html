@@ -4,7 +4,7 @@
     <button routerLink="/principal" routerLinkActive="ativo">Principal</button>
     <button routerLink="/tarefa" routerLinkActive="ativo">Tarefa</button>
     <span style="flex:auto"></span>
-    {{(user | async ) | json}}
+    {{(user | async ).user }}
     <button *ngIf="!!(user | async )" (click)="user.next()">Sair</button>
 </nav>
 <div class="content">
