@@ -1,6 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
+@import '~@angular/material/theming';
+@include mat-core();
 
+$mat-orange2: (
+    50: #fff3e0,
+    100: #ffe0b2,
+    200: #ffcc80,
+    300: #ffb74d,
+    400: #ffa726,
+    500: #ff9800,
+    600: #fb8c00,
+    700: #f57c00,
+    800: #ef6c00,
+    900: #e65100,
+    A100: #ffd180,
+    A200: #ffab40,
+    A400: #ff9100,
+    A700: #ff6d00,
+    contrast: (50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $dark-primary-text,
+        400: $dark-primary-text,
+        500: $dark-primary-text,
+        600: $dark-primary-text,
+        700: $dark-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+        A100: $dark-primary-text,
+        A200: $dark-primary-text,
+        A400: $dark-primary-text,
+        A700: black,
+    )
+);
+
+
+
+$BancoDemo-primary: mat-palette($mat-orange2);
+$BancoDemo-accent: mat-palette($mat-blue);
+$BancoDemo-warn: mat-palette($mat-red);
+$BancoDemo-theme-l: mat-light-theme($BancoDemo-primary, $BancoDemo-accent, $BancoDemo-warn);
+$BancoDemo-theme-d: mat-dark-theme($BancoDemo-primary, $BancoDemo-accent, $BancoDemo-warn);
+
+// @import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Freeman&display=swap');
 
 body {
     margin: 0;
@@ -9,13 +51,35 @@ body {
     flex-direction: column;
     align-items: stretch;
     justify-content: stretch;
+}
+
+@media (prefers-color-scheme: dark) {
+    @include angular-material-theme($BancoDemo-theme-d);
+
+
+    body {
+        background: #222;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    @include angular-material-theme($BancoDemo-theme-l);
 
 }
 
 * {
 
-    font-family: "Jacquard 12", system-ui;
+    font-family: "Freeman", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 30px;
+    // font-size: 30px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
 }

@@ -13,6 +13,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { Interceptor } from './interceptor';
 import { ApiModule } from 'src/api/api.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatNativeDateModule } from '@angular/material';
 registerLocaleData(localePt);
 
 @NgModule({
@@ -28,6 +30,8 @@ registerLocaleData(localePt);
     FormsModule,
     HttpClientModule,
     ApiModule.forRoot({rootUrl: 'http://10.250.250.104:3000'}),
+    BrowserAnimationsModule,
+    MatNativeDateModule,
   ],
   exports: [
 
