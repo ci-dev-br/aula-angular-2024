@@ -1,32 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-
 export interface Pokemon {
   name?: string;
   url?: string;
   front_default?: string;
-
 }
-
 export interface Result {
   count: number;
   next?: string;
   preious?: string;
   results: Pokemon[];
 }
-
 @Injectable({
   providedIn: 'root'
 })
 export class PokedexService {
-
   constructor(
     @Inject('API_URL')
     private URL: string,
     private http: HttpClient,
   ) { }
-
 
   async listar() {
     return (this.http.get<Result>(this.URL + 'pokemon/')
@@ -41,10 +35,7 @@ export class PokedexService {
       }))
       .toPromise())
   }
-
-
   async getInfo(poke: Pokemon) {
     return this.http.get<Result>(poke.url).toPromise()
-
   }
 }
