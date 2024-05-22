@@ -9,8 +9,9 @@ import { PintarDeRedDirective } from './pintar-de-red.directive';
 import { PintarDeBlueDirective } from './pintar-de-blue.directive';
 import { CepPipe } from './cep.pipe';
 import localePt from '@angular/common/locales/pt';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
+import { Interceptor } from './interceptor';
 registerLocaleData(localePt);
 
 @NgModule({
@@ -39,6 +40,11 @@ registerLocaleData(localePt);
       provide: 'API_URL',
       useValue: 'https://pokeapi.co/api/v2/'
     },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent]
 })
