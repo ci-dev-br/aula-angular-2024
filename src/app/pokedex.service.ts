@@ -1,21 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { Pokemon } from './navegacao/principal/models/Pokemon';
 
-export interface Pokemon {
-  name?: string;
-  url?: string;
-  front_default?: string;
-
-}
 
 export interface Result {
   count: number;
   next?: string;
   preious?: string;
-  results: Pokemon[];
+  results: IPokemon[];
 }
-
 @Injectable({
   providedIn: 'root'
 })
@@ -37,6 +31,7 @@ export class PokedexService {
           })
           return p;
         })
+        v.results.map(p => new Pokemon(p));
         return v;
       }))
       .toPromise())

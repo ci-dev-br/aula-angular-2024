@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PokedexService, Pokemon } from 'src/app/pokedex.service';
+import { PokedexService, IPokemon } from 'src/app/pokedex.service';
 
 @Component({
   selector: 'nx-principal',
@@ -7,7 +7,7 @@ import { PokedexService, Pokemon } from 'src/app/pokedex.service';
   styleUrls: ['./principal.component.scss']
 })
 export class PrincipalComponent implements OnInit {
-  ps: Pokemon[]
+  ps: IPokemon[]
   constructor(
     private pokedex: PokedexService,
   ) { }
@@ -16,7 +16,7 @@ export class PrincipalComponent implements OnInit {
     this.ps = (await this.pokedex.listar()).results;
   }
 
-  async more(p: Pokemon) {
+  async more(p: IPokemon) {
     let info: any = await this.pokedex.getInfo(p)
 
   }

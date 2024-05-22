@@ -9,9 +9,9 @@ export class Interceptor implements HttpInterceptor {
         private readonly auth: AuthService) {
     }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (this.auth.user && this.auth.user.value)
+        if (this.auth.user && this.auth.user.value && this.auth.user.value.user)
             req = req.clone({
-                headers: req.headers.set('Authorization', this.auth.user.value.name)
+                    headers: req.headers.set('Authorization', this.auth.user.value.user)
             })
         return next.handle(req);
     }
