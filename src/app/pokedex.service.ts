@@ -8,7 +8,7 @@ export interface Result {
   count: number;
   next?: string;
   preious?: string;
-  results: IPokemon[];
+  results: Pokemon[];
 }
 @Injectable({
   providedIn: 'root'

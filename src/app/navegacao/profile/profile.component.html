@@ -1,0 +1,13 @@
+<form [formGroup]="form" (submit)="salvar()">
+    <!-- <input type="text" placeholder="contas" formControlName="contas"> -->
+    <!-- <input type="text" placeholder="criadoPor" formControlName="criadoPor"> -->
+    <input type="text" placeholder="dataCriacao" formControlName="dataCriacao">
+    <input type="text" placeholder="dataUltimaAlteracao" formControlName="dataUltimaAlteracao">
+    <input type="text" placeholder="email" formControlName="email">
+    <input type="text" placeholder="internalId" formControlName="internalId">
+    <input type="password" placeholder="senha" formControlName="senha">
+    <input type="text" placeholder="username" formControlName="username">
+    <button>Salvar</button>
+</form>
+
+<router-outlet></router-outlet>

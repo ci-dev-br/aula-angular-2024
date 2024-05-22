@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+12&family=Oswald:wght@200..700&display=swap');
+
+* {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
 
 body {
     margin: 0;
@@ -6,5 +13,5 @@ body {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: stretch;   
+    justify-content: stretch;
 }
