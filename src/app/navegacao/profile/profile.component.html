@@ -1,0 +1,13 @@
+<h1>Perfil</h1>
+
+<form [formGroup]="form" (submit)="salvar()">
+    <!-- <input type="text" placeholder="contas" formControlName="contas" /> -->
+    <input type="text" placeholder="dataCriacao" formControlName="dataCriacao" />
+    <input type="text" placeholder="dataUltimaAlteracao" formControlName="dataUltimaAlteracao" />
+    <input type="text" placeholder="email" formControlName="email" />
+    <input type="text" placeholder="internalId" formControlName="internalId" />
+    <input type="text" placeholder="senha" formControlName="senha" />
+    <input type="text" placeholder="username" formControlName="username" />
+
+    <button>Confirmar alterações</button>
+</form>

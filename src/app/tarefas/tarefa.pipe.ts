@@ -7,7 +7,7 @@ import { Tarefa } from './model/tarefa';
 export class TarefaPipe implements PipeTransform {
 
   transform(value: any, ...args: any[]): any {
-    if (value instanceof Tarefa) return `${value.numero} - ${value.descricao}`
+    if (value instanceof Tarefa) return `${value.descricao}`
     return null;
   }
 

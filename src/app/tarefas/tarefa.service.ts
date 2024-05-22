@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Tarefa } from './model/tarefa';
 import { BehaviorSubject } from 'rxjs';
+import { Tarefa } from 'src/api/models';
+import { TarefaService as APITarefaService } from 'src/api/services';
 
 @Injectable()
 export class TarefaService {
@@ -8,5 +9,11 @@ export class TarefaService {
   atualizarLista() {
     this.tarefas.next([...this.tarefas.value]);
   }
-  constructor() { }
+  constructor(
+    private readonly tarefasservice: APITarefaService
+  ) {
+    this.tarefasservice.tarefaListar().subscribe(r => {
+      this.tarefas.next(r)
+    })
+  }
 }

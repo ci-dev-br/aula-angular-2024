@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
+
 
 body {
     margin: 0;
@@ -6,5 +8,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: stretch;   
+    justify-content: stretch;
+
+}
+
+* {
+
+    font-family: "Jacquard 12", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
 }

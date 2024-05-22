@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Tarefa } from '../model/tarefa';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TarefaService } from '../tarefa.service';
+import { Tarefa } from 'src/api/models';
 
 @Component({
   selector: 'nx-editar-tarefa',
@@ -17,10 +17,10 @@ export class EditarTarefaComponent implements OnInit {
   ) {
     route.params.subscribe(parametros => {
 
-      this.tarefa = tarefas.tarefas.value.find(t => t.numero == parametros.num);
+      //this.tarefa =//  tarefas.tarefas.value.find(t => t.numero == parametros.num//);
 
-      if (!this.tarefa)
-        setTimeout(() => router.navigate(['/tarefa']), 0);
+      // if (!this.tarefa)
+      //   setTimeout(() => router.navigate(['/tarefa']), 0);
     })
   }
 

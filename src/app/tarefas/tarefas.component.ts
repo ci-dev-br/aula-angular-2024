@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Tarefa } from './model/tarefa';
 import { TarefaService } from './tarefa.service';
+import { Tarefa } from 'src/api/models';
 
 @Component({
   selector: 'nx-tarefas',
@@ -21,7 +21,7 @@ export class TarefasComponent implements OnInit {
   }
   add(tarefa: string) {
     this.tarefas.push(
-      new Tarefa({ numero: this.tarefas.length, descricao: tarefa })
+      { descricao: tarefa }
     );
   }
   remover(tarefa: Tarefa) {
