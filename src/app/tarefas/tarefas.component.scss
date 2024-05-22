@@ -1,8 +1,20 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
 .lista {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: stretch;
 
+    overflow: auto;
+
     nx-item-tarefa {}
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
 }

@@ -1,8 +1,13 @@
-<input #tarefaInput (keydown.enter)="btn.click()" placeholder="Tarefa" />
-<button #btn (click)="add(tarefaInput.value);tarefaInput.value = '';tarefaInput.focus()">Adicionar</button>
+<div class="row">
 
-<div *ngFor="let tarefa of tarefas" class="lista">
-    <nx-item-tarefa [tarefa]="tarefa" (remover)="remover($event)"></nx-item-tarefa>
+    <input #tarefaInput (keydown.enter)="btn.click()" placeholder="Tarefa" />
+    <button #btn (click)="add(tarefaInput.value);tarefaInput.value = '';tarefaInput.focus()">Adicionar</button>
 </div>
-
-<router-outlet></router-outlet>
+<div class="row">
+    <div class="lista">
+        <ng-container *ngFor="let tarefa of tarefas">
+            <nx-item-tarefa [tarefa]="tarefa" (remover)="remover($event)"></nx-item-tarefa>
+        </ng-container>
+    </div>
+    <router-outlet></router-outlet>
+</div>

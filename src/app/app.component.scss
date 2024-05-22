@@ -8,11 +8,42 @@
     border: solid 2px #330000;
     border-radius: 6px;
 
-    box-shadow: 10px 20px 40px rgba(0,0,0,.77);
+    box-shadow: 10px 20px 40px rgba(0, 0, 0, .77);
+    flex: auto;
+
+    max-height: 85vh;
 }
 
 
 .ativo {
     background: blue;
     color: white;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+    align-items: center;
+
+    button {
+        border: none;
+        background-color: transparent;
+        padding: 12px;
+        border-radius: 25px;
+        font-weight: bold;
+
+        text-transform: uppercase;
+
+        &.ativo {
+            background-color: rgba(0, 0, 0, .33);
+        }
+    }
+}
+
+.content {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
 }

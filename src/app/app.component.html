@@ -1,10 +1,12 @@
-<nav style="display: flex; flex-direction: row;">
+<nav>
     <button routerLink="/login" routerLinkActive="ativo">Login</button>
     <button routerLink="/registrar" routerLinkActive="ativo">Registrar</button>
     <button routerLink="/principal" routerLinkActive="ativo">Principal</button>
     <button routerLink="/tarefa" routerLinkActive="ativo">Tarefa</button>
-    {{(user | async ) | json}}
     <span style="flex:auto"></span>
+    {{(user | async ) | json}}
     <button *ngIf="!!(user | async )" (click)="user.next()">Sair</button>
 </nav>
-<router-outlet></router-outlet>
+<div class="content">
+    <router-outlet></router-outlet>
+</div>

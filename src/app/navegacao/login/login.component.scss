@@ -12,4 +12,8 @@ form {
     gap: 6px;
     align-items: stretch;
     min-width: 300px;
+    padding: 24px;
+    padding-bottom: 72px;
+    background: linear-gradient(to top, rgba(0, 0, 0, .33) 0%, rgba(0, 0, 0, .77) 100%);
+    border-radius: 25px;
 }
