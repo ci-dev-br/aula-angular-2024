@@ -1,11 +1,16 @@
 <nav>
-    <button routerLink="/login" routerLinkActive="ativo">Login</button>
-    <button routerLink="/registrar" routerLinkActive="ativo">Registrar</button>
-    <button routerLink="/principal" routerLinkActive="ativo">Principal</button>
-    <button routerLink="/tarefa" routerLinkActive="ativo">Tarefa</button>
-    <span style="flex:auto"></span>
-    {{(user | async ).user }}
-    <button *ngIf="!!(user | async )" (click)="user.next()">Sair</button>
+    <ng-container *ngIf="!(user | async )">
+
+        <button routerLink="/login" routerLinkActive="ativo">Login</button>
+        <button routerLink="/registrar" routerLinkActive="ativo">Registrar</button>
+    </ng-container>
+    <ng-container *ngIf="!!(user | async )">
+        <button routerLink="/principal" routerLinkActive="ativo">Principal</button>
+        <button routerLink="/tarefa" routerLinkActive="ativo">Tarefa</button>
+        <span style="flex:auto"></span>
+        {{(user | async ).user }}
+        <button *ngIf="!!(user | async )" (click)="user.next()">Sair</button>
+    </ng-container>
 </nav>
 <div class="content">
     <router-outlet></router-outlet>
