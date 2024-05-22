@@ -27,4 +27,11 @@ export class Tarefa {
     // toString() {
     //     return `${this.numero} - ${this.descricao}`
     // }
+
+    toJSON() {
+        return {
+            numero: this.numero,
+            descricao: this.descricao,
+        }
+    }
 }

@@ -23,6 +23,7 @@ export class TarefasComponent implements OnInit {
     this.tarefas.push(
       new Tarefa({ numero: this.tarefas.length, descricao: tarefa })
     );
+    this.service.update();
   }
   remover(tarefa: Tarefa) {
     this.tarefas.splice(this.tarefas.indexOf(tarefa), 1);
