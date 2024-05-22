@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
 
 @Component({
@@ -7,14 +8,23 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./registrar.component.scss']
 })
 export class RegistrarComponent implements OnInit {
+  form = this.fb.group({
+    email: [],
+    username: [],
+    celular: [],
+    senha: [],
+    saldoInicial: [],
+  });
   constructor(
     private readonly auth: AuthService,
+    private fb: FormBuilder,
   ) { }
   ngOnInit() {
   }
-  async registrar(user: string, pass: string) {
+  async registrar() {
+    if (this.form.invalid) return;
     try {
-      await this.auth.registrar(user, pass);
+      // await this.auth.registrar(user, pass);
     } catch (error) {
       alert(error);
     }
