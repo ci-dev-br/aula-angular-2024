@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
     private readonly fb: UntypedFormBuilder,
     public readonly auth: AuthService,
     private readonly clientes: ClienteService,
-    private readonly daos: DaoService
+    private readonly daos: DaoService,
   ) { }
 
   ngOnInit() {
@@ -38,9 +38,12 @@ export class ProfileComponent implements OnInit {
       this.form.markAllAsTouched();
       return;
     }
-    let retorno = await (this.clientes.clienteSincronizar({ body: this.auth.user.getValue() }).toPromise());
-    this.daos.bindForm(this.form, retorno);
-    this.auth.user.next(retorno);
+    let cliente: Cliente = this.auth.user.getValue();
+    this.daos.peparar(cliente)
+    Object.assign(cliente, this.form.getRawValue());
+    cliente = await (this.clientes.clienteSincronizar({ body: this.daos.toSave(cliente) }).toPromise());
+    this.form.reset(cliente);
+    this.auth.user.next(cliente);
   }
 
   public get username(): string {
