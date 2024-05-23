@@ -36,3 +36,5 @@ export class PokedexComponent implements OnInit {
 
   }
 }
+
+

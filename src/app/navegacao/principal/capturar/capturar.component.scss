@@ -1,0 +1,26 @@
+.pokeball-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.pokeball-closed {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pokeball-open {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    /* Esconder a Pokébola aberta inicialmente */
+}
+
+.pokemon-captured {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

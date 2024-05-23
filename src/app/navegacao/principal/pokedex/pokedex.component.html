@@ -5,7 +5,10 @@
                 {{p.id}}
             </span>
             <img *ngIf="p.front_default" [src]="p.front_default" />
-            {{p.name}}
+
+            <span class="name">
+                {{p.name}}
+            </span>
         </div>
     </ng-container>
 </div>

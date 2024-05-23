@@ -34,9 +34,31 @@
             color: black
         }
 
+        .name {
+            filter: blur(2px);
+        }
+
         img {
             filter: opacity(.9) grayscale(1) saturate(0) contrast(1) brightness(.05);
             // scale: 2;
         }
     }
 }
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    height: 100%;
+  }
+  
+  body {
+    overflow: hidden;
+    display: grid;
+    color: white;
+    background: black;
+  }
+  
