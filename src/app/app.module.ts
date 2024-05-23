@@ -14,7 +14,7 @@ import { registerLocaleData } from '@angular/common';
 import { Interceptor } from './interceptor';
 import { ApiModule } from 'src/api/api.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
