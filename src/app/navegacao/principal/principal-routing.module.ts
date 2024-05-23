@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '', component: PrincipalComponent, children: [
       { path: 'pokedex', loadChildren: () => import('./pokedex/pokedex.module').then(m => m.PokedexModule) },
-      { path: 'mapa', loadChildren: () => import('./pokedex/pokedex.module').then(m => m.PokedexModule) },
+      { path: 'mapa', loadChildren: () => import('./mapa/mapa.module').then(m => m.MapaModule) },
     ]
   }
 ];
