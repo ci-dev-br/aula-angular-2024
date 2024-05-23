@@ -12,9 +12,6 @@ export class AppComponent {
   };
   v = 3;
   user = this.auth.user;
-
-
-
   @ViewChild('tarefaInput', { static: true })
   el: ElementRef<HTMLInputElement>;
   private _title = 'BancoDemo';

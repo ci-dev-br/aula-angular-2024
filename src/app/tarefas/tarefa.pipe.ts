@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Tarefa } from './model/tarefa';
+import { Tarefa } from 'src/api/models';
 
 @Pipe({
   name: 'tarefa',
@@ -7,8 +7,7 @@ import { Tarefa } from './model/tarefa';
 export class TarefaPipe implements PipeTransform {
 
   transform(value: any, ...args: any[]): any {
-    if (value instanceof Tarefa) return `${value.numero} - ${value.descricao}`
-    return null;
+    return `${value.descricao}`;
   }
 
 }

@@ -1,10 +1,21 @@
-<nav style="display: flex; flex-direction: row;">
-    <button routerLink="/login" routerLinkActive="ativo">Login</button>
-    <button routerLink="/registrar" routerLinkActive="ativo">Registrar</button>
-    <button routerLink="/principal" routerLinkActive="ativo">Principal</button>
-    <button routerLink="/tarefa" routerLinkActive="ativo">Tarefa</button>
-    {{(user | async ) | json}}
-    <span style="flex:auto"></span>
-    <button *ngIf="!!(user | async )" (click)="user.next()">Sair</button>
-</nav>
-<router-outlet></router-outlet>
+<mat-toolbar>
+
+    <ng-container *ngIf="!(user | async )">
+        <button mat-raised-button routerLink="/login" routerLinkActive="ativo">Login</button>
+        <button mat-raised-button routerLink="/registrar" routerLinkActive="ativo">Registrar</button>
+    </ng-container>
+    <ng-container *ngIf="!!(user | async )">
+        <button mat-raised-button routerLink="/principal" routerLinkActive="ativo">Principal</button>
+        <button mat-raised-button routerLink="/tarefa" routerLinkActive="ativo">Tarefa</button>
+        <span style="flex:auto"></span>
+        <span class="saldo">
+            {{ 54000.96 | number}}
+        </span>
+        <button mat-raised-button color="accent"> Comprar Baú</button>
+        <button mat-raised-button routerLink="/profile"> {{(user | async ).username}}</button>
+        <button mat-raised-button (click)="user.next(null)">Sair</button>
+    </ng-container>
+</mat-toolbar>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>

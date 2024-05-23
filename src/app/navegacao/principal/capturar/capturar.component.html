@@ -1,0 +1,10 @@
+<p>capturar works!</p>
+<div class="pokeball-container">
+    <img src="assets/pokeball-closed.png" class="pokeball-closed" (click)="toggleOpen()">
+    <img src="assets/pokeball-open.png" class="pokeball-open" (click)="toggleOpen()">
+
+    <div class="pokemon-captured" *ngIf="isPokemonCaptured">
+        <img src="assets/{{pokemonImage}}" alt="{{pokemonName}}">
+        <p>{{pokemonName}}</p>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+.pokemons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 24px;
+
+    .item {
+        background: linear-gradient(to top, #dedede 0%, #777 100%);
+        color: white;
+
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        border-radius: 8px;
+        box-shadow: 10px 20px 30px rgba(0, 0, 0, .33);
+
+        justify-content: center;
+        align-items: center;
+        padding: 24px;
+
+        user-select: none;
+        pointer-events: none;
+
+        color: rgba(0, 0, 0, .1);
+        opacity: .44;
+
+        .code {
+            align-self: flex-end;
+            color: black
+        }
+
+        .name {
+            filter: blur(2px);
+        }
+
+        img {
+            filter: opacity(.9) grayscale(1) saturate(0) contrast(1) brightness(.05);
+            // scale: 2;
+        }
+    }
+}
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    height: 100%;
+  }
+  
+  body {
+    overflow: hidden;
+    display: grid;
+    color: white;
+    background: black;
+  }
+  

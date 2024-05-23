@@ -1,8 +1,19 @@
-:host{
+:host {
     display: contents;
 }
 
 .ativo {
     background: blue;
     color: white;
+}
+
+mat-toolbar {
+    flex: none;
+}
+
+.container {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
 }

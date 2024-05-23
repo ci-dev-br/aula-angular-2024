@@ -1,19 +1,14 @@
-.pokemons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px;
+:host {
+    display: contents;
 
+    mat-toolbar {
+        flex: none;
+    }
 
-    .item {
-        background: linear-gradient(to top, red 0%, blue 100%);
-        color: white;
-
+    .container {
+        flex: auto;
         display: flex;
+        overflow: auto;
         flex-direction: column;
-        gap: 6px;
-
-        border-radius: 15px;
-        box-shadow: 10px 20px 30px rgba(0, 0, 0, .33);
     }
 }

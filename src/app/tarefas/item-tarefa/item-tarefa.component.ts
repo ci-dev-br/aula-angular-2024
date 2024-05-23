@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Tarefa } from '../model/tarefa';
 import { Router } from '@angular/router';
 import { TarefaService } from '../tarefa.service';
+import { Tarefa } from 'src/api/models';
 
 @Component({
   selector: 'nx-item-tarefa',
@@ -19,13 +19,13 @@ export class ItemTarefaComponent implements OnInit {
   @Input()
   public set tarefa(value: Tarefa) {
     this._tarefa = value;
-    this._tarefa.change.subscribe(t => {
-      this.tarefas.atualizarLista();
-      this._tarefa = null;
-      setTimeout(() =>
-        this._tarefa = t
-      )
-    })
+    /*  this._tarefa.change.subscribe(t => {
+       this.tarefas.atualizarLista();
+       this._tarefa = null;
+       setTimeout(() =>
+         this._tarefa = t
+       )
+     }) */
   }
   constructor(
     private router: Router,
@@ -34,9 +34,9 @@ export class ItemTarefaComponent implements OnInit {
   ngOnInit() {
   }
   remover() {
-    this.removerEmitter.emit(this.tarefa);
+    /// this.removerEmitter.emit(this.tarefa);
   }
   editar() {
-    this.router.navigate(['/tarefa/editar/' + this.tarefa.numero])
+    // this.router.navigate(['/tarefa/editar/' + this.tarefa.numero])
   }
 }
