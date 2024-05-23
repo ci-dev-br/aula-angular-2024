@@ -23,7 +23,6 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
-    "@asymmetrik/ngx-leaflet": "^8.1.0",
     "hammerjs": "^2.0.8",
     "ng-openapi-gen": "0.8.2",
     "rxjs": "~6.4.0",
