@@ -1,51 +1,10 @@
 @use '@angular/material' as mat;
-@import '@angular/material/theming';
-// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
-//  The following line adds:
-//    1. Default typography styles for all components
-//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
-//  If you specify typography styles for the components you use elsewhere, you should delete this line.
-//  If you don't need the default component typographies but still want the hierarchy styles,
-//  you can delete this line and instead use:
-//    `@include mat.legacy-typography-hierarchy(mat.define-typography-config());`
+
 @include mat.all-component-typographies();
 @include mat.core();
 
-$mat-orange2: (
-    50: #fff3e0,
-    100: #ffe0b2,
-    200: #ffcc80,
-    300: #ffb74d,
-    400: #ffa726,
-    500: #ff9800,
-    600: #fb8c00,
-    700: #f57c00,
-    800: #ef6c00,
-    900: #e65100,
-    A100: #ffd180,
-    A200: #ffab40,
-    A400: #ff9100,
-    A700: #ff6d00,
-    contrast: (50: $dark-primary-text,
-        100: $dark-primary-text,
-        200: $dark-primary-text,
-        300: $dark-primary-text,
-        400: $dark-primary-text,
-        500: $dark-primary-text,
-        600: $dark-primary-text,
-        700: $dark-primary-text,
-        800: $light-primary-text,
-        900: $light-primary-text,
-        A100: $dark-primary-text,
-        A200: $dark-primary-text,
-        A400: $dark-primary-text,
-        A700: black,
-    )
-);
 
-
-
-$BancoDemo-primary: mat.m2-define-palette($mat-orange2);
+$BancoDemo-primary: mat.m2-define-palette(mat.$m2-blue-palette);
 $BancoDemo-accent: mat.m2-define-palette(mat.$m2-blue-palette);
 $BancoDemo-warn: mat.m2-define-palette(mat.$m2-red-palette);
 $BancoDemo-theme-l: mat.m2-define-light-theme($BancoDemo-primary, $BancoDemo-accent, $BancoDemo-warn);
