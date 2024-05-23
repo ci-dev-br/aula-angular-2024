@@ -31,7 +31,7 @@ registerLocaleData(localePt);
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
         FormsModule,
-        ApiModule.forRoot({ rootUrl: 'http://localhost:3000' }),
+        ApiModule.forRoot({ rootUrl: 'http://10.250.250.104:3000' }),
         BrowserAnimationsModule,
         MatNativeDateModule,
         MatToolbarModule,
