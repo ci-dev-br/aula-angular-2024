@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Cliente } from 'src/api/models';
 import { ClienteService } from 'src/api/services';
 import { AuthService } from 'src/app/auth.service';
@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
     username: [, Validators.required],
   });
   constructor(
-    private readonly fb: FormBuilder,
+    private readonly fb: UntypedFormBuilder,
     private readonly auth: AuthService,
     private readonly clientes: ClienteService,
   ) { }
