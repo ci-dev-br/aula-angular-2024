@@ -44,3 +44,5 @@ export class PokedexService {
 
   }
 }
+export { IPokemon };
+
