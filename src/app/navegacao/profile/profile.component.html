@@ -1,13 +1,29 @@
 <form [formGroup]="form" (submit)="salvar()">
     <!-- <input type="text" placeholder="contas" formControlName="contas"> -->
-    <!-- <input type="text" placeholder="criadoPor" formControlName="criadoPor"> -->
-    <input type="text" placeholder="dataCriacao" formControlName="dataCriacao">
-    <input type="text" placeholder="dataUltimaAlteracao" formControlName="dataUltimaAlteracao">
-    <input type="text" placeholder="email" formControlName="email">
-    <input type="text" placeholder="internalId" formControlName="internalId">
-    <input type="password" placeholder="senha" formControlName="senha">
-    <input type="text" placeholder="username" formControlName="username">
-    <button>Salvar</button>
+    <!-- <input type="text" placeholder="criadoPor" formControlName="criadoPor"> -->      
+    <mat-form-field>
+        <input matInput [matDatepicker]="criacao" placeholder="dataCriacao" formControlName="dataCriacao">
+        <mat-datepicker-toggle matSuffix [for]="criacao"></mat-datepicker-toggle>
+        <mat-datepicker #criacao></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [matDatepicker]="alteracao" placeholder="dataUltimaAlteracao" formControlName="dataUltimaAlteracao">
+        <mat-datepicker-toggle matSuffix [for]="alteracao"></mat-datepicker-toggle>
+        <mat-datepicker #alteracao></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" placeholder="email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" placeholder="internalId" formControlName="internalId">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" placeholder="senha" formControlName="senha">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" placeholder="username" formControlName="username">
+    </mat-form-field>
+    <button mat-raised-button>Salvar</button>
 </form>
 
 <router-outlet></router-outlet>
