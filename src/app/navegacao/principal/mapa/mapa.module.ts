@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { MapaRoutingModule } from './mapa-routing.module';
 import { MapaComponent } from './mapa.component';
+import 'leaflet/dist/leaflet.css';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 @NgModule({
@@ -10,6 +12,7 @@ import { MapaComponent } from './mapa.component';
   imports: [
     CommonModule,
     MapaRoutingModule,
+    LeafletModule
   ]
 })
 export class MapaModule { }
