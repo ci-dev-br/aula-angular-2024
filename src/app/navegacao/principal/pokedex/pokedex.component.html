@@ -1,7 +1,9 @@
 <div class="pokemons">
     <ng-container *ngFor="let p of ps">
         <div class="item" (click)="more(p)">
-            {{p.id}}
+            <span class="code">
+                {{p.id}}
+            </span>
             <img *ngIf="p.front_default" [src]="p.front_default" />
             {{p.name}}
         </div>
