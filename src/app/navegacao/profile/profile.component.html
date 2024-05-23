@@ -1,38 +1,43 @@
 <h1>Perfil</h1>
 
-<form [formGroup]="form" (submit)="salvar()">
-    <!-- <input type="text" placeholder="contas" formControlName="contas" /> -->
-    <mat-form-field>
-        <mat-label>dataCriacao</mat-label>
-        <input matInput type="text" placeholder="dataCriacao" formControlName="dataCriacao"
-            [matDatepicker]="dataCriacaoPicker" />
-        <mat-datepicker-toggle matSuffix [for]="dataCriacaoPicker"></mat-datepicker-toggle>
-        <mat-datepicker #dataCriacaoPicker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>dataUltimaAlteracao</mat-label>
-        <input matInput type="text" placeholder="dataUltimaAlteracao" formControlName="dataUltimaAlteracao"
-            [matDatepicker]="dataUltimaAlteracaoPicker" />
-        <mat-datepicker-toggle matSuffix [for]="dataUltimaAlteracaoPicker"></mat-datepicker-toggle>
-        <mat-datepicker #dataUltimaAlteracaoPicker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>email</mat-label>
-        <input matInput type="text" placeholder="email" formControlName="email" />
-    </mat-form-field>
-    <!-- <mat-form-field>
-        <mat-label>internalId</mat-label>
-        <input matInput type="text" placeholder="internalId" formControlName="internalId" />
-    </mat-form-field> -->
+<div style="display: flex; flex-direction: row;" >
+    <form [formGroup]="form" (submit)="salvar()">
+        <!-- <input type="text" placeholder="contas" formControlName="contas" /> -->
+        <mat-form-field>
+            <mat-label>dataCriacao</mat-label>
+            <input matInput type="text" placeholder="dataCriacao" formControlName="dataCriacao"
+                [matDatepicker]="dataCriacaoPicker" />
+            <mat-datepicker-toggle matSuffix [for]="dataCriacaoPicker"></mat-datepicker-toggle>
+            <mat-datepicker #dataCriacaoPicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>dataUltimaAlteracao</mat-label>
+            <input matInput type="text" placeholder="dataUltimaAlteracao" formControlName="dataUltimaAlteracao"
+                [matDatepicker]="dataUltimaAlteracaoPicker" />
+            <mat-datepicker-toggle matSuffix [for]="dataUltimaAlteracaoPicker"></mat-datepicker-toggle>
+            <mat-datepicker #dataUltimaAlteracaoPicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>email</mat-label>
+            <input matInput type="text" placeholder="email" formControlName="email" />
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <mat-label>internalId</mat-label>
+            <input matInput type="text" placeholder="internalId" formControlName="internalId" />
+        </mat-form-field> -->
+    
+        <mat-form-field>
+            <mat-label>username</mat-label>
+            <input matInput type="text" placeholder="username" formControlName="username" />
+        </mat-form-field>
+    
+        <mat-form-field>
+            <mat-label>senha</mat-label>
+            <input matInput type="password" placeholder="senha" formControlName="senha" />
+        </mat-form-field>
+        <button mat-raised-button color="primary">Confirmar alterações</button>
+    </form>
 
-    <mat-form-field>
-        <mat-label>username</mat-label>
-        <input matInput type="text" placeholder="username" formControlName="username" />
-    </mat-form-field>
+    <div class="">{{(this.auth.user | async) | json}}</div>
+</div>
 
-    <mat-form-field>
-        <mat-label>senha</mat-label>
-        <input matInput type="password" placeholder="senha" formControlName="senha" />
-    </mat-form-field>
-    <button mat-raised-button color="primary">Confirmar alterações</button>
-</form>

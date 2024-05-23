@@ -23,14 +23,14 @@ export class ProfileComponent implements OnInit {
   });
   constructor(
     private readonly fb: UntypedFormBuilder,
-    private readonly auth: AuthService,
+    public readonly auth: AuthService,
     private readonly clientes: ClienteService,
     private readonly daos: DaoService
   ) { }
 
   ngOnInit() {
     if (this.auth.user.getValue())
-      this.form.reset(this.auth.user.getValue())
+    this.daos.bindForm(this.form, this.auth.user.getValue())
   }
 
   async salvar() {
@@ -38,20 +38,19 @@ export class ProfileComponent implements OnInit {
       this.form.markAllAsTouched();
       return;
     }
-    let cliente: Cliente = this.auth.user.getValue();
-    this.daos.preparar(cliente);
-    //let values = this.form.getRawValue();
-    Object.assign(cliente, this.form.getRawValue())
-    //let to_save: Cliente = {internalId: cliente.internalId};
-    /*
-    Object.keys(cliente).forEach(p => {
-      if(cliente[p] !== values[p]) to_save[p] = values[p];
-    })
-    */
-    cliente = await (this.clientes.clienteSincronizar({ body: this.daos.toSave(cliente) }).toPromise());
-
-    this.form.reset(cliente);
-    this.auth.user.next(cliente);
+    let retorno = await (this.clientes.clienteSincronizar({ body: this.auth.user.getValue() }).toPromise());
+    this.daos.bindForm(this.form, retorno);
+    this.auth.user.next(retorno);
   }
 
+  public get username(): string {
+    return this.auth.user.value.username;
+  }
+  public set username(value: string){
+    this.auth.user.value.username = value;
+  }
 }
+
+
+
+
