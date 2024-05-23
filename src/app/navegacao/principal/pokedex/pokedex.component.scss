@@ -23,6 +23,8 @@
         align-items: center;
         padding: 24px;
 
+        user-select: none;
+        pointer-events: none;
 
         color: rgba(0, 0, 0, .1);
 

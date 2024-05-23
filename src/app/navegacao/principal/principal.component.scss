@@ -1,0 +1,14 @@
+:host {
+    display: contents;
+
+    mat-toolbar {
+        flex: none;
+    }
+
+    .container {
+        flex: auto;
+        display: flex;
+        overflow: auto;
+        flex-direction: column;
+    }
+}
