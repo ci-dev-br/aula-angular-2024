@@ -1,5 +1,6 @@
+@use '~@angular/material' as mat;
 @import '~@angular/material/theming';
-@include mat-core();
+@include mat.core();
 
 $mat-orange2: (
     50: #fff3e0,
@@ -35,11 +36,11 @@ $mat-orange2: (
 
 
 
-$BancoDemo-primary: mat-palette($mat-orange2);
-$BancoDemo-accent: mat-palette($mat-blue);
-$BancoDemo-warn: mat-palette($mat-red);
-$BancoDemo-theme-l: mat-light-theme($BancoDemo-primary, $BancoDemo-accent, $BancoDemo-warn);
-$BancoDemo-theme-d: mat-dark-theme($BancoDemo-primary, $BancoDemo-accent, $BancoDemo-warn);
+$BancoDemo-primary: mat.define-palette($mat-orange2);
+$BancoDemo-accent: mat.define-palette(mat.$blue-palette);
+$BancoDemo-warn: mat.define-palette(mat.$red-palette);
+$BancoDemo-theme-l: mat.define-light-theme($BancoDemo-primary, $BancoDemo-accent, $BancoDemo-warn);
+$BancoDemo-theme-d: mat.define-dark-theme($BancoDemo-primary, $BancoDemo-accent, $BancoDemo-warn);
 
 // @import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Freeman&display=swap');
@@ -54,7 +55,7 @@ body {
 }
 
 @media (prefers-color-scheme: dark) {
-    @include angular-material-theme($BancoDemo-theme-d);
+    @include mat.all-component-themes($BancoDemo-theme-d);
 
 
     body {
@@ -63,7 +64,7 @@ body {
 }
 
 @media (prefers-color-scheme: light) {
-    @include angular-material-theme($BancoDemo-theme-l);
+    @include mat.all-component-themes($BancoDemo-theme-l);
 
 }
 
