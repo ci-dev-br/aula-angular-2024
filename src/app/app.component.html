@@ -8,6 +8,7 @@
         <button mat-raised-button routerLink="/principal" routerLinkActive="ativo">Principal</button>
         <button mat-raised-button routerLink="/tarefa" routerLinkActive="ativo">Tarefa</button>
         <span style="flex:auto"></span>
+        <button mat-raised-button color="accent"> Comprar Baú</button>
         <button mat-raised-button routerLink="/profile"> {{(user | async ).username}}</button>
         <button mat-raised-button (click)="user.next(null)">Sair</button>
     </ng-container>
