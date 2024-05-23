@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
-import { Cliente } from 'src/api/models';
 import { ClienteService } from 'src/api/services';
 import { AuthService } from 'src/app/auth.service';
 import { DaoService } from 'src/app/core/dao.service';
@@ -12,8 +11,6 @@ import { DaoService } from 'src/app/core/dao.service';
 })
 export class ProfileComponent implements OnInit {
   form = this.fb.group({
-    //contas: [],
-    //criadoPor: [],
     dataCriacao: [],
     dataUltimaAlteracao: [],
     email: [, Validators.email],
@@ -27,27 +24,23 @@ export class ProfileComponent implements OnInit {
     private readonly clientes: ClienteService,
     private readonly daos: DaoService,
   ) { }
-
   ngOnInit() {
     if (this.auth.user.getValue())
       this.daos.bindForm(this.form, this.auth.user.getValue())
   }
-
   async salvar() {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
-    await (this.clientes.clienteSincronizar({ body: this.auth.user.getValue() }).toPromise());
-    // this.form.reset(cliente);
-    // this.auth.user.next(cliente);
+    let retorno = await (this.clientes.clienteSincronizar({ body: this.auth.user.getValue() }).toPromise());
+    this.daos.bindForm(this.form, retorno);
+    this.auth.user.next(retorno);
   }
   public get username(): string {
     return this.auth.user.value.username;
   }
   public set username(value: string) {
-
     this.auth.user.value.username = value;
   }
-
 }

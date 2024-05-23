@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 registerLocaleData(localePt);
 
 
@@ -36,6 +37,7 @@ registerLocaleData(localePt);
         MatNativeDateModule,
         MatToolbarModule,
         MatButtonModule,
+        // LeafletModule.
         MatIconModule], providers: [
         AuthService,
         {

@@ -1,3 +1,2 @@
-<p>mapa works!</p>
-<div style="height: 300px;" leaflet>
+<div *ngIf="options" style="height: calc(100vh - 160px); " leaflet [leafletOptions]="options">
 </div>

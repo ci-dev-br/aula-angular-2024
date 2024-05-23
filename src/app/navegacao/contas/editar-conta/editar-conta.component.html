@@ -1,0 +1,10 @@
+<p>editar-conta works!</p>
+<form [formGroup]="form">
+    <mat-form-field>
+        <input matInput type="text" placeholder="numero" formControlName="numero">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" placeholder="saldoCorrente" formControlName="saldoCorrente">
+    </mat-form-field>
+</form>
+<button mat-raised-button (click)="confirmar()">Salvar</button>

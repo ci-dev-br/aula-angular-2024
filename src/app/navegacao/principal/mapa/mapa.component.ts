@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { latLng, tileLayer } from 'leaflet';
 
 @Component({
   selector: 'nx-mapa',
@@ -7,15 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapaComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.options = {
+          layers: [
+            tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { maxZoom: 30, minZoom: 0 }),
+          ],
+          zoom: 17,
+          center: latLng(position.coords.latitude, position.coords.longitude)
+        };
+
+      });
+    } else {
+    }
   }
-  options = {
-    // layers: [
-    //   tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
-    // ],
-    // zoom: 5,
-    // center: latLng(46.879966, -121.726909)
-  };
+  options = null;
 }

@@ -5,6 +5,8 @@
         <button mat-raised-button routerLink="/registrar" routerLinkActive="ativo">Registrar</button>
     </ng-container>
     <ng-container *ngIf="!!(user | async )">
+        <button mat-raised-button routerLink="/dash" routerLinkActive="ativo">Dashboard</button>
+        <button mat-raised-button routerLink="/contas" routerLinkActive="ativo">Contas</button>
         <button mat-raised-button routerLink="/principal" routerLinkActive="ativo">Principal</button>
         <button mat-raised-button routerLink="/tarefa" routerLinkActive="ativo">Tarefa</button>
         <span style="flex:auto"></span>
