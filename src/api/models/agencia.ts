@@ -1,15 +1,16 @@
 /* tslint:disable */
-import { Cliente } from './cliente';
-import { Conta } from './conta';
+/* eslint-disable */
+import { Cliente } from '../models/cliente';
+import { Conta } from '../models/conta';
 export interface Agencia {
-  codigo?: null | string;
-  contas?: null | Array<Conta>;
-  criadoPor?: null | Cliente;
-  dataCriacao?: null | string;
-  dataUltimaAlteracao?: null | string;
-  deletado?: null | boolean;
-  detetadoEm?: null | string;
-  detetadoPor?: null | Cliente;
-  internalId?: null | string;
-  nome?: null | string;
+  codigo?: string | null;
+  contas?: Array<Conta> | null;
+  criadoPor?: Cliente | null;
+  dataCriacao?: string | null;
+  dataUltimaAlteracao?: string | null;
+  deletado?: boolean | null;
+  detetadoEm?: string | null;
+  detetadoPor?: Cliente | null;
+  internalId?: string | null;
+  nome?: string | null;
 }

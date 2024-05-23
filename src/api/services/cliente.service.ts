@@ -1,29 +1,29 @@
 /* tslint:disable */
+/* eslint-disable */
+import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
-import { RequestBuilder } from '../request-builder';
-import { Observable } from 'rxjs';
-import { map, filter } from 'rxjs/operators';
 
 import { Cliente } from '../models/cliente';
+import { clienteAutenticar } from '../fn/cliente/cliente-autenticar';
+import { ClienteAutenticar$Params } from '../fn/cliente/cliente-autenticar';
+import { clienteMe } from '../fn/cliente/cliente-me';
+import { ClienteMe$Params } from '../fn/cliente/cliente-me';
+import { clienteSincronizar } from '../fn/cliente/cliente-sincronizar';
+import { ClienteSincronizar$Params } from '../fn/cliente/cliente-sincronizar';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class ClienteService extends BaseService {
-  constructor(
-    config: ApiConfiguration,
-    http: HttpClient
-  ) {
+  constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }
 
-  /**
-   * Path part for operation clienteSincronizar
-   */
+  /** Path part for operation `clienteSincronizar()` */
   static readonly ClienteSincronizarPath = '/Cliente/Sincronizar';
 
   /**
@@ -32,45 +32,23 @@ export class ClienteService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  clienteSincronizar$Response(params: {
-      body: Cliente
-  }): Observable<StrictHttpResponse<Cliente>> {
-
-    const rb = new RequestBuilder(this.rootUrl, ClienteService.ClienteSincronizarPath, 'post');
-    if (params) {
-
-
-      rb.body(params.body, 'application/json');
-    }
-    return this.http.request(rb.build({
-      responseType: 'json',
-      accept: 'application/json'
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Cliente>;
-      })
-    );
+  clienteSincronizar$Response(params: ClienteSincronizar$Params, context?: HttpContext): Observable<StrictHttpResponse<Cliente>> {
+    return clienteSincronizar(this.http, this.rootUrl, params, context);
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `clienteSincronizar$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  clienteSincronizar(params: {
-      body: Cliente
-  }): Observable<Cliente> {
-
-    return this.clienteSincronizar$Response(params).pipe(
-      map((r: StrictHttpResponse<Cliente>) => r.body as Cliente)
+  clienteSincronizar(params: ClienteSincronizar$Params, context?: HttpContext): Observable<Cliente> {
+    return this.clienteSincronizar$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Cliente>): Cliente => r.body)
     );
   }
 
-  /**
-   * Path part for operation clienteAutenticar
-   */
+  /** Path part for operation `clienteAutenticar()` */
   static readonly ClienteAutenticarPath = '/Cliente/Autenticar';
 
   /**
@@ -79,45 +57,23 @@ export class ClienteService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  clienteAutenticar$Response(params: {
-      body: Cliente
-  }): Observable<StrictHttpResponse<Cliente>> {
-
-    const rb = new RequestBuilder(this.rootUrl, ClienteService.ClienteAutenticarPath, 'post');
-    if (params) {
-
-
-      rb.body(params.body, 'application/json');
-    }
-    return this.http.request(rb.build({
-      responseType: 'json',
-      accept: 'application/json'
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Cliente>;
-      })
-    );
+  clienteAutenticar$Response(params: ClienteAutenticar$Params, context?: HttpContext): Observable<StrictHttpResponse<Cliente>> {
+    return clienteAutenticar(this.http, this.rootUrl, params, context);
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `clienteAutenticar$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  clienteAutenticar(params: {
-      body: Cliente
-  }): Observable<Cliente> {
-
-    return this.clienteAutenticar$Response(params).pipe(
-      map((r: StrictHttpResponse<Cliente>) => r.body as Cliente)
+  clienteAutenticar(params: ClienteAutenticar$Params, context?: HttpContext): Observable<Cliente> {
+    return this.clienteAutenticar$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Cliente>): Cliente => r.body)
     );
   }
 
-  /**
-   * Path part for operation clienteMe
-   */
+  /** Path part for operation `clienteMe()` */
   static readonly ClienteMePath = '/Cliente/Me';
 
   /**
@@ -126,38 +82,19 @@ export class ClienteService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  clienteMe$Response(params?: {
-
-  }): Observable<StrictHttpResponse<Cliente>> {
-
-    const rb = new RequestBuilder(this.rootUrl, ClienteService.ClienteMePath, 'post');
-    if (params) {
-
-
-    }
-    return this.http.request(rb.build({
-      responseType: 'json',
-      accept: 'application/json'
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Cliente>;
-      })
-    );
+  clienteMe$Response(params?: ClienteMe$Params, context?: HttpContext): Observable<StrictHttpResponse<Cliente>> {
+    return clienteMe(this.http, this.rootUrl, params, context);
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `clienteMe$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  clienteMe(params?: {
-
-  }): Observable<Cliente> {
-
-    return this.clienteMe$Response(params).pipe(
-      map((r: StrictHttpResponse<Cliente>) => r.body as Cliente)
+  clienteMe(params?: ClienteMe$Params, context?: HttpContext): Observable<Cliente> {
+    return this.clienteMe$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Cliente>): Cliente => r.body)
     );
   }
 

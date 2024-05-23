@@ -1,29 +1,27 @@
 /* tslint:disable */
+/* eslint-disable */
+import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
-import { RequestBuilder } from '../request-builder';
-import { Observable } from 'rxjs';
-import { map, filter } from 'rxjs/operators';
 
 import { Tarefa } from '../models/tarefa';
+import { tarefaListar } from '../fn/tarefa/tarefa-listar';
+import { TarefaListar$Params } from '../fn/tarefa/tarefa-listar';
+import { tarefaSincronizar } from '../fn/tarefa/tarefa-sincronizar';
+import { TarefaSincronizar$Params } from '../fn/tarefa/tarefa-sincronizar';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class TarefaService extends BaseService {
-  constructor(
-    config: ApiConfiguration,
-    http: HttpClient
-  ) {
+  constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }
 
-  /**
-   * Path part for operation tarefaSincronizar
-   */
+  /** Path part for operation `tarefaSincronizar()` */
   static readonly TarefaSincronizarPath = '/Tarefa/Sincronizar';
 
   /**
@@ -32,45 +30,23 @@ export class TarefaService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  tarefaSincronizar$Response(params: {
-      body: Tarefa
-  }): Observable<StrictHttpResponse<Tarefa>> {
-
-    const rb = new RequestBuilder(this.rootUrl, TarefaService.TarefaSincronizarPath, 'post');
-    if (params) {
-
-
-      rb.body(params.body, 'application/json');
-    }
-    return this.http.request(rb.build({
-      responseType: 'json',
-      accept: 'application/json'
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Tarefa>;
-      })
-    );
+  tarefaSincronizar$Response(params: TarefaSincronizar$Params, context?: HttpContext): Observable<StrictHttpResponse<Tarefa>> {
+    return tarefaSincronizar(this.http, this.rootUrl, params, context);
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `tarefaSincronizar$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  tarefaSincronizar(params: {
-      body: Tarefa
-  }): Observable<Tarefa> {
-
-    return this.tarefaSincronizar$Response(params).pipe(
-      map((r: StrictHttpResponse<Tarefa>) => r.body as Tarefa)
+  tarefaSincronizar(params: TarefaSincronizar$Params, context?: HttpContext): Observable<Tarefa> {
+    return this.tarefaSincronizar$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Tarefa>): Tarefa => r.body)
     );
   }
 
-  /**
-   * Path part for operation tarefaListar
-   */
+  /** Path part for operation `tarefaListar()` */
   static readonly TarefaListarPath = '/Tarefa/Listar';
 
   /**
@@ -79,38 +55,19 @@ export class TarefaService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  tarefaListar$Response(params?: {
-
-  }): Observable<StrictHttpResponse<Array<Tarefa>>> {
-
-    const rb = new RequestBuilder(this.rootUrl, TarefaService.TarefaListarPath, 'post');
-    if (params) {
-
-
-    }
-    return this.http.request(rb.build({
-      responseType: 'json',
-      accept: 'application/json'
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Array<Tarefa>>;
-      })
-    );
+  tarefaListar$Response(params?: TarefaListar$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Tarefa>>> {
+    return tarefaListar(this.http, this.rootUrl, params, context);
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `tarefaListar$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  tarefaListar(params?: {
-
-  }): Observable<Array<Tarefa>> {
-
-    return this.tarefaListar$Response(params).pipe(
-      map((r: StrictHttpResponse<Array<Tarefa>>) => r.body as Array<Tarefa>)
+  tarefaListar(params?: TarefaListar$Params, context?: HttpContext): Observable<Array<Tarefa>> {
+    return this.tarefaListar$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Array<Tarefa>>): Array<Tarefa> => r.body)
     );
   }
 

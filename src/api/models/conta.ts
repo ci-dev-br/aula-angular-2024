@@ -1,18 +1,19 @@
 /* tslint:disable */
-import { Agencia } from './agencia';
-import { Cliente } from './cliente';
+/* eslint-disable */
+import { Agencia } from '../models/agencia';
+import { Cliente } from '../models/cliente';
 export interface Conta {
-  agencia?: null | Agencia;
-  cliente?: null | Cliente;
-  criadoPor?: null | Cliente;
-  dataCriacao?: null | string;
-  dataUltimaAlteracao?: null | string;
-  deletado?: null | boolean;
-  detetadoEm?: null | string;
-  detetadoPor?: null | Cliente;
-  envio?: null | Array<string>;
-  internalId?: null | string;
-  numero?: null | string;
-  reepao?: null | Array<string>;
-  saldoCorrente?: null | number;
+  agencia?: Agencia | null;
+  cliente?: Cliente | null;
+  criadoPor?: Cliente | null;
+  dataCriacao?: string | null;
+  dataUltimaAlteracao?: string | null;
+  deletado?: boolean | null;
+  detetadoEm?: string | null;
+  detetadoPor?: Cliente | null;
+  envio?: Array<string> | null;
+  internalId?: string | null;
+  numero?: string | null;
+  reepao?: Array<string> | null;
+  saldoCorrente?: number | null;
 }

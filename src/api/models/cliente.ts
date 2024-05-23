@@ -1,15 +1,16 @@
 /* tslint:disable */
-import { Conta } from './conta';
+/* eslint-disable */
+import { Conta } from '../models/conta';
 export interface Cliente {
-  contas?: null | Array<Conta>;
-  criadoPor?: null | Cliente;
-  dataCriacao?: null | string;
-  dataUltimaAlteracao?: null | string;
-  deletado?: null | boolean;
-  detetadoEm?: null | string;
-  detetadoPor?: null | Cliente;
-  email?: null | string;
-  internalId?: null | string;
-  senha?: null | string;
-  username?: null | string;
+  contas?: Array<Conta> | null;
+  criadoPor?: Cliente | null;
+  dataCriacao?: string | null;
+  dataUltimaAlteracao?: string | null;
+  deletado?: boolean | null;
+  detetadoEm?: string | null;
+  detetadoPor?: Cliente | null;
+  email?: string | null;
+  internalId?: string | null;
+  senha?: string | null;
+  username?: string | null;
 }

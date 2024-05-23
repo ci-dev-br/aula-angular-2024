@@ -1,12 +1,13 @@
 /* tslint:disable */
-import { Cliente } from './cliente';
+/* eslint-disable */
+import { Cliente } from '../models/cliente';
 export interface Tarefa {
-  criadoPor?: null | Cliente;
-  dataCriacao?: null | string;
-  dataUltimaAlteracao?: null | string;
-  deletado?: null | boolean;
-  descricao?: null | string;
-  detetadoEm?: null | string;
-  detetadoPor?: null | Cliente;
-  internalId?: null | string;
+  criadoPor?: Cliente | null;
+  dataCriacao?: string | null;
+  dataUltimaAlteracao?: string | null;
+  deletado?: boolean | null;
+  descricao?: string | null;
+  detetadoEm?: string | null;
+  detetadoPor?: Cliente | null;
+  internalId?: string | null;
 }

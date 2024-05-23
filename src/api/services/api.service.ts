@@ -1,28 +1,24 @@
 /* tslint:disable */
+/* eslint-disable */
+import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
-import { RequestBuilder } from '../request-builder';
-import { Observable } from 'rxjs';
-import { map, filter } from 'rxjs/operators';
 
+import { appControllerGetHello } from '../fn/operations/app-controller-get-hello';
+import { AppControllerGetHello$Params } from '../fn/operations/app-controller-get-hello';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class ApiService extends BaseService {
-  constructor(
-    config: ApiConfiguration,
-    http: HttpClient
-  ) {
+  constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }
 
-  /**
-   * Path part for operation appControllerGetHello
-   */
+  /** Path part for operation `appControllerGetHello()` */
   static readonly AppControllerGetHelloPath = '/';
 
   /**
@@ -31,38 +27,19 @@ export class ApiService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  appControllerGetHello$Response(params?: {
-
-  }): Observable<StrictHttpResponse<void>> {
-
-    const rb = new RequestBuilder(this.rootUrl, ApiService.AppControllerGetHelloPath, 'get');
-    if (params) {
-
-
-    }
-    return this.http.request(rb.build({
-      responseType: 'text',
-      accept: '*/*'
-    })).pipe(
-      filter((r: any) => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
-      })
-    );
+  appControllerGetHello$Response(params?: AppControllerGetHello$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+    return appControllerGetHello(this.http, this.rootUrl, params, context);
   }
 
   /**
-   * This method provides access to only to the response body.
+   * This method provides access only to the response body.
    * To access the full response (for headers, for example), `appControllerGetHello$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  appControllerGetHello(params?: {
-
-  }): Observable<void> {
-
-    return this.appControllerGetHello$Response(params).pipe(
-      map((r: StrictHttpResponse<void>) => r.body as void)
+  appControllerGetHello(params?: AppControllerGetHello$Params, context?: HttpContext): Observable<void> {
+    return this.appControllerGetHello$Response(params, context).pipe(
+      map((r: StrictHttpResponse<void>): void => r.body)
     );
   }
 
