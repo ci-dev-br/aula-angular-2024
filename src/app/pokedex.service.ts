@@ -28,6 +28,7 @@ export class PokedexService {
         v.results.map(p => {
           this.getInfo(p).then((info: any) => {
             p.front_default = info.sprites.front_default;
+            Object.assign(p, info);
           })
           return p;
         })

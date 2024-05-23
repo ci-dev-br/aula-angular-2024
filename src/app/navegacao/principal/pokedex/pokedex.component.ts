@@ -25,7 +25,9 @@ export class PokedexComponent implements OnInit {
     let r = (await this.pokedex.listar(next_or_prev_url));
     this.ps = [...(this.ps || []), ...r.results];
     if (r.next) {
-      this.carregarLista(r.next);
+      setTimeout(() => {
+        this.carregarLista(r.next);
+      })
     }
   }
 
