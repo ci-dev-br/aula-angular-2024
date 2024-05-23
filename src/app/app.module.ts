@@ -9,7 +9,7 @@ import { PintarDeRedDirective } from './pintar-de-red.directive';
 import { PintarDeBlueDirective } from './pintar-de-blue.directive';
 import { CepPipe } from './cep.pipe';
 import localePt from '@angular/common/locales/pt';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { Interceptor } from './interceptor';
 import { ApiModule } from 'src/api/api.module';
@@ -21,44 +21,36 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 registerLocaleData(localePt);
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    CepPipe,
-    // PintarDeRedDirective,
-    // PintarDeBlueDirective,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    ApiModule.forRoot({ rootUrl: 'http://localhost:3000' }),
-    BrowserAnimationsModule,
-    MatNativeDateModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-  ],
-  exports: [
-
-  ],
-  providers: [
-    AuthService,
-    {
-      provide: LOCALE_ID,
-      useValue: 'pt'
-    },
-    {
-      provide: 'API_URL',
-      useValue: 'https://pokeapi.co/api/v2/'
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: Interceptor,
-      multi: true,
-    }
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        CepPipe,
+        // PintarDeRedDirective,
+        // PintarDeBlueDirective,
+    ],
+    exports: [],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ApiModule.forRoot({ rootUrl: 'http://localhost:3000' }),
+        BrowserAnimationsModule,
+        MatNativeDateModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule], providers: [
+        AuthService,
+        {
+            provide: LOCALE_ID,
+            useValue: 'pt'
+        },
+        {
+            provide: 'API_URL',
+            useValue: 'https://pokeapi.co/api/v2/'
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: Interceptor,
+            multi: true,
+        },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }

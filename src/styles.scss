@@ -45,11 +45,11 @@ $mat-orange2: (
 
 
 
-$BancoDemo-primary: mat.define-palette($mat-orange2);
-$BancoDemo-accent: mat.define-palette(mat.$blue-palette);
-$BancoDemo-warn: mat.define-palette(mat.$red-palette);
-$BancoDemo-theme-l: mat.define-light-theme($BancoDemo-primary, $BancoDemo-accent, $BancoDemo-warn);
-$BancoDemo-theme-d: mat.define-dark-theme($BancoDemo-primary, $BancoDemo-accent, $BancoDemo-warn);
+$BancoDemo-primary: mat.m2-define-palette($mat-orange2);
+$BancoDemo-accent: mat.m2-define-palette(mat.$m2-blue-palette);
+$BancoDemo-warn: mat.m2-define-palette(mat.$m2-red-palette);
+$BancoDemo-theme-l: mat.m2-define-light-theme($BancoDemo-primary, $BancoDemo-accent, $BancoDemo-warn);
+$BancoDemo-theme-d: mat.m2-define-dark-theme($BancoDemo-primary, $BancoDemo-accent, $BancoDemo-warn);
 
 // @import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Freeman&display=swap');
