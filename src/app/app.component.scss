@@ -1,8 +1,12 @@
-:host{
+:host {
     display: contents;
 }
 
 .ativo {
     background: blue;
     color: white;
+}
+
+mat-toolbar {
+    flex: none;
 }

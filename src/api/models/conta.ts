@@ -7,6 +7,9 @@ export interface Conta {
   criadoPor?: null | Cliente;
   dataCriacao?: null | string;
   dataUltimaAlteracao?: null | string;
+  deletado?: null | boolean;
+  detetadoEm?: null | string;
+  detetadoPor?: null | Cliente;
   envio?: null | Array<string>;
   internalId?: null | string;
   numero?: null | string;

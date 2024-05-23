@@ -7,6 +7,9 @@ export interface Agencia {
   criadoPor?: null | Cliente;
   dataCriacao?: null | string;
   dataUltimaAlteracao?: null | string;
+  deletado?: null | boolean;
+  detetadoEm?: null | string;
+  detetadoPor?: null | Cliente;
   internalId?: null | string;
   nome?: null | string;
 }

@@ -20,9 +20,8 @@ export class TarefasComponent implements OnInit {
   ngOnInit() {
   }
   add(tarefa: string) {
-    this.tarefas.push(
-      { descricao: tarefa }
-    );
+
+    this.service.adicionar({ descricao: tarefa });
   }
   remover(tarefa: Tarefa) {
     this.tarefas.splice(this.tarefas.indexOf(tarefa), 1);

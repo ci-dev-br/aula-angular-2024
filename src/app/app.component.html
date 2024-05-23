@@ -1,14 +1,15 @@
-<nav style="display: flex; flex-direction: row;">
+<mat-toolbar>
+
     <ng-container *ngIf="!(user | async )">
-        <button routerLink="/login" routerLinkActive="ativo">Login</button>
-        <button routerLink="/registrar" routerLinkActive="ativo">Registrar</button>
+        <button mat-raised-button routerLink="/login" routerLinkActive="ativo">Login</button>
+        <button mat-raised-button routerLink="/registrar" routerLinkActive="ativo">Registrar</button>
     </ng-container>
     <ng-container *ngIf="!!(user | async )">
-        <button routerLink="/principal" routerLinkActive="ativo">Principal</button>
-        <button routerLink="/tarefa" routerLinkActive="ativo">Tarefa</button>
+        <button mat-raised-button routerLink="/principal" routerLinkActive="ativo">Principal</button>
+        <button mat-raised-button routerLink="/tarefa" routerLinkActive="ativo">Tarefa</button>
         <span style="flex:auto"></span>
-        <button routerLink="/profile"> {{(user | async ).username}}</button>
-        <button (click)="user.next()">Sair</button>
+        <button mat-raised-button routerLink="/profile"> {{(user | async ).username}}</button>
+        <button mat-raised-button (click)="user.next()">Sair</button>
     </ng-container>
-</nav>
+</mat-toolbar>
 <router-outlet></router-outlet>

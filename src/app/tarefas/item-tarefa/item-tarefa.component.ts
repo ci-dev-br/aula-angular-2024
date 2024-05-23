@@ -34,7 +34,7 @@ export class ItemTarefaComponent implements OnInit {
   ngOnInit() {
   }
   remover() {
-    this.removerEmitter.emit(this.tarefa);
+    /// this.removerEmitter.emit(this.tarefa);
   }
   editar() {
     // this.router.navigate(['/tarefa/editar/' + this.tarefa.numero])

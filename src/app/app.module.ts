@@ -14,8 +14,9 @@ import { registerLocaleData } from '@angular/common';
 import { Interceptor } from './interceptor';
 import { ApiModule } from 'src/api/api.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatNativeDateModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatNativeDateModule, MatToolbarModule } from '@angular/material';
 registerLocaleData(localePt);
+
 
 @NgModule({
   declarations: [
@@ -29,9 +30,12 @@ registerLocaleData(localePt);
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ApiModule.forRoot({rootUrl: 'http://10.250.250.104:3000'}),
+    ApiModule.forRoot({ rootUrl: 'http://localhost:3000' }),
     BrowserAnimationsModule,
     MatNativeDateModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   exports: [
 

@@ -1,11 +1,14 @@
-<p>principal works!</p>
 <div class="pokemons">
-
-    <ng-container *ngFor="let p of ps">
-        <div class="item" (click)="more(p)">
-            <img *ngIf="p.front_default" [src]="p.front_default" />
-            {{p.name}}
-
-        </div>
-    </ng-container>
+    <mat-toolbar>
+        <button mat-raised-button routerLink="pokedex"  >
+            Pokedex
+        </button>
+        <button mat-raised-button routerLink="mapa"  >
+            Caçar Pokemon
+        </button>
+        <button mat-raised-button>
+            Comprar Pokemon
+        </button>
+    </mat-toolbar>
 </div>
+<router-outlet></router-outlet>

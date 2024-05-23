@@ -115,4 +115,50 @@ export class ClienteService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation clienteMe
+   */
+  static readonly ClienteMePath = '/Cliente/Me';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `clienteMe()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  clienteMe$Response(params?: {
+
+  }): Observable<StrictHttpResponse<Cliente>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ClienteService.ClienteMePath, 'post');
+    if (params) {
+
+
+    }
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json'
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Cliente>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `clienteMe$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  clienteMe(params?: {
+
+  }): Observable<Cliente> {
+
+    return this.clienteMe$Response(params).pipe(
+      map((r: StrictHttpResponse<Cliente>) => r.body as Cliente)
+    );
+  }
+
 }

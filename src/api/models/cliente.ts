@@ -5,6 +5,9 @@ export interface Cliente {
   criadoPor?: null | Cliente;
   dataCriacao?: null | string;
   dataUltimaAlteracao?: null | string;
+  deletado?: null | boolean;
+  detetadoEm?: null | string;
+  detetadoPor?: null | Cliente;
   email?: null | string;
   internalId?: null | string;
   senha?: null | string;
