@@ -8,13 +8,25 @@ import { PokedexService } from 'src/app/pokedex.service';
   styleUrls: ['./pokedex.component.scss']
 })
 export class PokedexComponent implements OnInit {
-  ps: IPokemon[]
+  ps: IPokemon[] = [];
   constructor(
     private pokedex: PokedexService,
   ) { }
 
   async ngOnInit() {
-    this.ps = (await this.pokedex.listar()).results;
+    // let a
+    // 
+    // 
+    // this.ps = .results;
+    this.carregarLista();
+  }
+
+  async carregarLista(next_or_prev_url?: string) {
+    let r = (await this.pokedex.listar(next_or_prev_url));
+    this.ps = [...(this.ps || []), ...r.results];
+    if (r.next) {
+      this.carregarLista(r.next);
+    }
   }
 
   async more(p: IPokemon) {

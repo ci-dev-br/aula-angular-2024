@@ -22,8 +22,8 @@ export class PokedexService {
   ) { }
 
 
-  async listar() {
-    return (this.http.get<Result>(this.URL + 'pokemon/')
+  async listar(next_or_prev_url?: string) {
+    return (this.http.get<Result>(next_or_prev_url || (this.URL + 'pokemon/'))
       .pipe(map(v => {
         v.results.map(p => {
           this.getInfo(p).then((info: any) => {
