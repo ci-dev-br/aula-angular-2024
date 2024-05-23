@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { Pokemon } from './navegacao/principal/models/Pokemon';
+import { IPokemon, Pokemon } from './navegacao/principal/models/Pokemon';
 
 
 export interface Result {
@@ -38,8 +38,10 @@ export class PokedexService {
   }
 
 
-  async getInfo(poke: Pokemon) {
+  async getInfo(poke: Pokemon | IPokemon) {
     return this.http.get<Result>(poke.url).toPromise()
 
   }
 }
+export { IPokemon };
+
