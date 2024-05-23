@@ -22,7 +22,7 @@
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
-    "ng-openapi-gen": "0.8.2",
+    "ng-openapi-gen": "^0.51.0",
     "rxjs": "~6.6.7",
     "tslib": "^2.0.0",
     "zone.js": "~0.14.6"
