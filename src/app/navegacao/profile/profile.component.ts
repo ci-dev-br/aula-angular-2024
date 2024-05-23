@@ -3,6 +3,7 @@ import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Cliente } from 'src/api/models';
 import { ClienteService } from 'src/api/services';
 import { AuthService } from 'src/app/auth.service';
+import { DaoService } from 'src/app/core/dao.service';
 
 @Component({
   selector: 'nx-profile',
@@ -11,8 +12,8 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class ProfileComponent implements OnInit {
   form = this.fb.group({
-    contas: [],
-    criadoPor: [],
+    //contas: [],
+    //criadoPor: [],
     dataCriacao: [],
     dataUltimaAlteracao: [],
     email: [, Validators.email],
@@ -24,6 +25,7 @@ export class ProfileComponent implements OnInit {
     private readonly fb: UntypedFormBuilder,
     private readonly auth: AuthService,
     private readonly clientes: ClienteService,
+    private readonly daos: DaoService,
   ) { }
 
   ngOnInit() {
@@ -37,10 +39,9 @@ export class ProfileComponent implements OnInit {
       return;
     }
     let cliente: Cliente = this.auth.user.getValue();
+    this.daos.peparar(cliente)
     Object.assign(cliente, this.form.getRawValue());
-
-    cliente = await (this.clientes.clienteSincronizar({ body: cliente }).toPromise());
-
+    cliente = await (this.clientes.clienteSincronizar({ body: this.daos.toSave(cliente) }).toPromise());
     this.form.reset(cliente);
     this.auth.user.next(cliente);
   }
