@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClienteService } from 'src/api/services';
+import { ClienteService } from '@nsinova/banco-demo-api';
 import { AuthService } from 'src/app/auth.service';
 
 @Component({

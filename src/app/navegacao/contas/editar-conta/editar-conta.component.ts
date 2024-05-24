@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Conta } from 'src/api/models';
-import { ContaService } from 'src/api/services';
+import { Conta } from '@nsinova/banco-demo-api';
+import { ContaService } from '@nsinova/banco-demo-api';
 import { DaoService } from 'src/app/core/dao.service';
 
 @Component({

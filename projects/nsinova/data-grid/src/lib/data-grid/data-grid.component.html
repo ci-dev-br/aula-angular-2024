@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        @if(colunas){
+        <tr>
+            @for (coluna of colunas; track $index) {
+            <th>{{(coluna.headerName || coluna.field) | t}}</th>
+            }
+        </tr>
+        }
+    </thead>
+    <tbody>
+        @if(data){
+        @for (item of data; track $index) {
+        <tr>
+            @for (coluna of colunas; track $index) {
+            <td>{{item[coluna.field]}}</td>
+            }
+        </tr>
+        }
+        }
+    </tbody>
+</table>

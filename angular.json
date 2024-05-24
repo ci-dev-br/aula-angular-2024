@@ -115,6 +115,138 @@
           }
         }
       }
+    },
+    "@nsinova/banco-demo-api": {
+      "projectType": "library",
+      "root": "projects/nsinova/banco-demo-api",
+      "sourceRoot": "projects/nsinova/banco-demo-api/src",
+      "prefix": "nx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/nsinova/banco-demo-api/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/nsinova/banco-demo-api/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/nsinova/banco-demo-api/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/nsinova/banco-demo-api/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "@nsinova/data-grid": {
+      "projectType": "library",
+      "root": "projects/nsinova/data-grid",
+      "sourceRoot": "projects/nsinova/data-grid/src",
+      "prefix": "nx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/nsinova/data-grid/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/nsinova/data-grid/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/nsinova/data-grid/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/nsinova/data-grid/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "traducao": {
+      "projectType": "library",
+      "root": "projects/traducao",
+      "sourceRoot": "projects/traducao/src",
+      "prefix": "nx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/traducao/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/traducao/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/traducao/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/traducao/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "@nsinova/traducao": {
+      "projectType": "library",
+      "root": "projects/nsinova/traducao",
+      "sourceRoot": "projects/nsinova/traducao/src",
+      "prefix": "nx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/nsinova/traducao/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/nsinova/traducao/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/nsinova/traducao/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/nsinova/traducao/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -12,7 +12,7 @@ import localePt from '@angular/common/locales/pt';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { Interceptor } from './interceptor';
-import { ApiModule } from 'src/api/api.module';
+import { ApiModule } from '@nsinova/banco-demo-api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -22,7 +22,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 registerLocaleData(localePt);
 
 
-@NgModule({ declarations: [
+@NgModule({
+    declarations: [
         AppComponent,
         CepPipe,
         // PintarDeRedDirective,
@@ -39,20 +40,21 @@ registerLocaleData(localePt);
         MatButtonModule,
         // LeafletModule.
         MatIconModule], providers: [
-        AuthService,
-        {
-            provide: LOCALE_ID,
-            useValue: 'pt'
-        },
-        {
-            provide: 'API_URL',
-            useValue: 'https://pokeapi.co/api/v2/'
-        },
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: Interceptor,
-            multi: true,
-        },
-        provideHttpClient(withInterceptorsFromDi())
-    ] })
+            AuthService,
+            {
+                provide: LOCALE_ID,
+                useValue: 'pt'
+            },
+            {
+                provide: 'API_URL',
+                useValue: 'https://pokeapi.co/api/v2/'
+            },
+            {
+                provide: HTTP_INTERCEPTORS,
+                useClass: Interceptor,
+                multi: true,
+            },
+            provideHttpClient(withInterceptorsFromDi())
+        ]
+})
 export class AppModule { }

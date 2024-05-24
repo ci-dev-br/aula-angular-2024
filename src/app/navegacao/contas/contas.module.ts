@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { DataGridComponent } from '@nsinova/data-grid';
+import { TRADUCAO, TraducaoModule } from '@nsinova/traducao';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,15 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
+    DataGridComponent,
+  ], providers: [
+    {
+      provide: TRADUCAO, useValue: {
+        dataCriacao: 'Data de Criação',
+        numero: 'Número',
+        saldoCorrente: 'Saldo Corrente',
+      }
+    }
   ]
 })
 export class ContasModule { }
