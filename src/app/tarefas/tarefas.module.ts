@@ -9,6 +9,8 @@ import { TarefaPipe } from './tarefa.pipe';
 import { EditarTarefaComponent } from './editar-tarefa/editar-tarefa.component';
 import { FormsModule } from '@angular/forms';
 import { TarefaService } from './tarefa.service';
+import { MatDialogModule } from '@angular/material/dialog';
+import { LibzinhaModule } from '@nsinova/libzinha';
 
 
 @NgModule({
@@ -23,6 +25,8 @@ import { TarefaService } from './tarefa.service';
     CommonModule,
     TarefasRoutingModule,
     FormsModule,
+    MatDialogModule,
+    LibzinhaModule,
   ],
   providers: [
     TarefaService

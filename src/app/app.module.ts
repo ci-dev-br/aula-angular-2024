@@ -12,24 +12,27 @@ import localePt from '@angular/common/locales/pt';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { Interceptor } from './interceptor';
-import { ApiModule } from 'src/api/api.module';
+import { ApiModule } from '@nsinova/banco-demo-api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LibzinhaModule } from '@nsinova/libzinha';
 registerLocaleData(localePt);
 
 
-@NgModule({ declarations: [
+@NgModule({
+    declarations: [
         AppComponent,
         CepPipe,
         // PintarDeRedDirective,
         // PintarDeBlueDirective,
     ],
     exports: [],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent], 
+    imports: [BrowserModule,
         AppRoutingModule,
         FormsModule,
         ApiModule.forRoot({ rootUrl: 'http://10.250.250.104:3000' }),
@@ -38,7 +41,9 @@ registerLocaleData(localePt);
         MatToolbarModule,
         MatButtonModule,
         // LeafletModule.
-        MatIconModule], providers: [
+        MatIconModule,
+        LibzinhaModule,
+    ], providers: [
         AuthService,
         {
             provide: LOCALE_ID,
@@ -54,5 +59,6 @@ registerLocaleData(localePt);
             multi: true,
         },
         provideHttpClient(withInterceptorsFromDi())
-    ] })
+    ]
+})
 export class AppModule { }

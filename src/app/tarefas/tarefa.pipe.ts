@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Tarefa } from 'src/api/models';
+import { Tarefa } from '@nsinova/banco-demo-api';
 
 @Pipe({
   name: 'tarefa',

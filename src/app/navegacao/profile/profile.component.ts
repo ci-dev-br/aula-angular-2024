@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
-import { ClienteService } from 'src/api/services';
+import { ClienteService } from '@nsinova/banco-demo-api';
 import { AuthService } from 'src/app/auth.service';
 import { DaoService } from 'src/app/core/dao.service';
 

@@ -115,6 +115,72 @@
           }
         }
       }
+    },
+    "@nsinova/banco-demo-api": {
+      "projectType": "library",
+      "root": "projects/nsinova/banco-demo-api",
+      "sourceRoot": "projects/nsinova/banco-demo-api/src",
+      "prefix": "nx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/nsinova/banco-demo-api/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/nsinova/banco-demo-api/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/nsinova/banco-demo-api/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/nsinova/banco-demo-api/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "@nsinova/libzinha": {
+      "projectType": "library",
+      "root": "projects/nsinova/libzinha",
+      "sourceRoot": "projects/nsinova/libzinha/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/nsinova/libzinha/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/nsinova/libzinha/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/nsinova/libzinha/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/nsinova/libzinha/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

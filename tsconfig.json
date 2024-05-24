@@ -1,6 +1,26 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@nsinova/banco-demo-api": [
+        "./dist/nsinova/banco-demo-api"
+      ],
+      "@nsinova/lib": [
+        "./dist/nsinova/lib"
+      ],
+      "@nsinova/libzinha": [
+        "./dist/nsinova/libzinha",
+        "./dist/nsinova/libzinha",
+        "./dist/nsinova/libzinha",
+        "./dist/nsinova/libzinha"
+      ],
+      "lib": [
+        "./dist/lib"
+      ],
+      "libzinha": [
+        "./dist/libzinha"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

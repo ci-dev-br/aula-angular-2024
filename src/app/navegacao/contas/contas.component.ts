@@ -5,9 +5,9 @@ import { ColDef } from 'ag-grid-community'; // Column Definition Type Interface
 /* Quartz Theme Specific CSS */
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-quartz.css';
-import { ContaListar$Params } from 'src/api/fn/conta/conta-listar';
-import { Conta } from 'src/api/models';
-import { ContaService } from 'src/api/services';
+
+import { Conta } from '@nsinova/banco-demo-api';
+import { ContaService } from '@nsinova/banco-demo-api';
 import { EditarContaComponent } from './editar-conta/editar-conta.component';
 
 @Component({
