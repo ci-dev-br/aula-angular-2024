@@ -115,6 +115,39 @@
           }
         }
       }
+    },
+    "ngx-libm": {
+      "projectType": "library",
+      "root": "projects/ngx-libm",
+      "sourceRoot": "projects/ngx-libm/src",
+      "prefix": "libm",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-libm/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-libm/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-libm/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/ngx-libm/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -9,6 +9,11 @@
     "experimentalDecorators": true,
     "module": "es2020",
     "moduleResolution": "node",
+    "paths": {
+      "ngx-libm": [
+        "./dist/ngx-libm"
+      ]
+    },
     "importHelpers": true,
     "target": "ES2022",
     "typeRoots": [

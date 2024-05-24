@@ -38,7 +38,15 @@ export class ProfileComponent implements OnInit {
       this.form.markAllAsTouched();
       return;
     }
-    await (this.clientes.clienteSincronizar({ body: this.auth.user.getValue() }).toPromise());
+
+
+    let retorno = await (this.clientes.clienteSincronizar({ body: this.auth.user.getValue() }).toPromise());
+    
+    this.daos.bindForm(this.form, retorno);
+    this.auth.user.next(retorno);
+
+    //Object.assign(cliente, retorno)
+    //this.daos.preparar(cliente);
     // this.form.reset(cliente);
     // this.auth.user.next(cliente);
   }

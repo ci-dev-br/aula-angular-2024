@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FuncionalidadeModule } from 'projects/ngx-libm/src/navegacao/funcionalidade/funcionalidade.module';
 registerLocaleData(localePt);
 
 
@@ -36,8 +37,10 @@ registerLocaleData(localePt);
         MatNativeDateModule,
         MatToolbarModule,
         MatButtonModule,
+        FuncionalidadeModule,
         MatIconModule], providers: [
         AuthService,
+        
         {
             provide: LOCALE_ID,
             useValue: 'pt'
