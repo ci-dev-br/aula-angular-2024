@@ -12,14 +12,13 @@ import localePt from '@angular/common/locales/pt';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import { Interceptor } from './interceptor';
-import { ApiModule } from 'src/api/api.module';
+import { ApiModule } from '@nsinova/banco-demo-api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 registerLocaleData(localePt);
-
 
 @NgModule({ declarations: [
         AppComponent,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
+import { LibGabrielApiComponent } from 'lib-gabriel-api';
 
 @Component({
   selector: 'nx-login',
@@ -7,8 +8,11 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  text?: any[]
+
   constructor(
     private auth: AuthService,
+    private servico: LibGabrielApiComponent
   ) { }
 
   ngOnInit() {
@@ -20,6 +24,10 @@ export class LoginComponent implements OnInit {
     } catch (error) {
       alert(error)
     }
+  }
+
+  async getData(url: string){
+    this.text = await this.servico.chamarApi(url)
   }
 
 }

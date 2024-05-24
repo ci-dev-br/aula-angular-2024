@@ -1,6 +1,14 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@nsinova/banco-demo-api": [
+        "./dist/nsinova/banco-demo-api"
+      ],
+      "lib-gabriel-api": [
+        "./dist/lib-gabriel-api"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

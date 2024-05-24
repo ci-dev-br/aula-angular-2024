@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Tarefa } from 'src/api/models';
-import { TarefaService as APITarefaService } from 'src/api/services';
+import { Tarefa } from '@nsinova/banco-demo-api';
+import { TarefaService as APITarefaService } from '@nsinova/banco-demo-api';
 
 @Injectable()
 export class TarefaService {
@@ -23,3 +23,8 @@ export class TarefaService {
     return tarefa_saved;
   }
 }
+
+
+
+
+

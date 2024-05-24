@@ -7,6 +7,7 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 import { ApiService } from './services/api.service';
 import { ClienteService } from './services/cliente.service';
 import { TarefaService } from './services/tarefa.service';
+import { ContaService } from './services/conta.service';
 
 /**
  * Module that provides all services and configuration.
@@ -19,6 +20,7 @@ import { TarefaService } from './services/tarefa.service';
     ApiService,
     ClienteService,
     TarefaService,
+    ContaService,
     ApiConfiguration
   ],
 })

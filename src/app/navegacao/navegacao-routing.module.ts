@@ -7,6 +7,8 @@ const routes: Routes = [
   { path: 'registrar', loadChildren: () => import('./registrar/registrar.module').then(m => m.RegistrarModule) },
   { path: 'principal', canActivate: [AuthGuard], loadChildren: () => import('./principal/principal.module').then(m => m.PrincipalModule) },
   { path: 'profile', canActivate: [AuthGuard], loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule) },
+  { path: 'dash', canActivate: [AuthGuard], loadChildren: () => import('./dash/dash.module').then(m => m.DashModule) },
+  { path: 'grid', canActivate: [AuthGuard], loadChildren: () => import('./grid/grid.module').then(m => m.GridModule) }
 ];
 
 @NgModule({

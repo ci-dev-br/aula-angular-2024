@@ -7,6 +7,8 @@
     <ng-container *ngIf="!!(user | async )">
         <button mat-raised-button routerLink="/principal" routerLinkActive="ativo">Principal</button>
         <button mat-raised-button routerLink="/tarefa" routerLinkActive="ativo">Tarefa</button>
+        <button mat-raised-button routerLink="/dash">Dash</button>
+        <button mat-raised-button routerLink="/grid">Grid</button>
         <span style="flex:auto"></span>
         <span class="saldo">
             {{ 54000.96 | number}}

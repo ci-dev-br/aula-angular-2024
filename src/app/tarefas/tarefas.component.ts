@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TarefaService } from './tarefa.service';
-import { Tarefa } from 'src/api/models';
+import { Tarefa } from '@nsinova/banco-demo-api';
 
 @Component({
   selector: 'nx-tarefas',

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { Cliente } from 'src/api/models';
-import { ClienteService } from 'src/api/services';
+import { Cliente } from '@nsinova/banco-demo-api';
+import { ClienteService } from '@nsinova/banco-demo-api';
 
 @Injectable()
 export class AuthService {

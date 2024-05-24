@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import { UntypedFormGroup } from '@angular/forms';
+import { Cliente } from '@nsinova/banco-demo-api';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DaoService {
+  bindForm(form: UntypedFormGroup, arg1: Cliente) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor() { }
 
